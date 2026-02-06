@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        text-align: center;
+    }
+
+    .container {
+        background: rgba(255,255,255,0.15);
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        width: 90%;
+        max-width: 400px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+
+    button {
+        border: none;
+        padding: 12px 28px;
+        font-size: 18px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+        background: #ff4d6d;
+        color: #fff;
+    }
+
+    #noBtn {
+        background: #fff;
+        color: #ff4d6d;
+    }
+
+    #message {
+        margin-top: 20px;
+        font-size: 16px;
+        min-height: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+    <h1>Will you be my Valentine? 💝</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+
+    <div id="message"></div>
+</div>
+
+<script>
+    const noMessages = [
+        "Are you sure? 🥺💗",
+        "Ek baar phir soch lo na 😘",
+        "My heart just skipped a beat 💔",
+        "Itna bhi kya gussa 😢",
+        "I promise chocolates 🍫",
+        "Main bahut cute hoon 😌",
+        "Tum meri favourite ho 🫶",
+        "Dil todna paap hota hai 😭",
+        "Pleaseeee 🥹✨",
+        "Tum mana nahi kar sakti 😏",
+        "Sach mein NO? 😮",
+        "Valentine ke bina main adhoora 😞",
+        "Ek YES se sab theek ho jayega 💕",
+        "Maine already planning kar li 😌",
+        "Mera dil tumhare paas hai ❤️",
+        "Tum NO nahi bol sakti 🫣",
+        "Itna bhi cruel nahi hona 😔",
+        "YES likhne mein kya jaata hai 😉",
+        "Tum smile karo bas 😍",
+        "Final warning: main pighal jaunga 🫠"
+    ];
+
+    let noClickCount = 0;
+    let yesScale = 1;
+
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const messageDiv = document.getElementById("message");
+
+    noBtn.addEventListener("click", () => {
+        const msg = noMessages[noClickCount % noMessages.length];
+        messageDiv.textContent = msg;
+
+        noClickCount++;
+        yesScale += 0.15;
+        yesBtn.style.transform = `scale(${yesScale})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+        document.getElementById("main").innerHTML = `
+            <h1>Yayyy! 💖</h1>
+            <p style="font-size:16px; margin-top:20px;">
+                From the moment you came into my life,<br>
+                every ordinary day turned special ✨<br><br>
+
+                This Valentine’s Day, I don’t just want a yes,<br>
+                I want your smile, your time,<br>
+                and all the little moments with you 💕<br><br>
+
+                Thank you for choosing me,<br>
+                today and always ❤️<br><br>
+
+                <strong>From Yash 💌</strong>
+            </p>
+        `;
+    });
+</script>
+
+</body>
+</html>
